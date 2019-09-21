@@ -118,13 +118,15 @@ class Team(object):
         self.heros = {}
 
     def add_hero(self, hero):
-        self.heros[hero.name: hero]
+        self.heros.update({hero.name: hero})
         pass
 
     def remove_hero(self, hero):
+        self.heros.pop(hero.name)
         pass
 
     def list_heros(self):
+        print(self.heros.keys())
         pass
 
 
