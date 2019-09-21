@@ -1,7 +1,7 @@
-class Dog:
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
+from animal import Animal
+
+
+class Dog(Animal):
 
     def bark():
         print("Woof!")
