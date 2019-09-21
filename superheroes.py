@@ -115,20 +115,29 @@ class Team(object):
 
     def __init__(self, name):
         self.name = name
-        self.heros = {}
+        self.heroes = []
 
     def add_hero(self, hero):
-        self.heros.update({hero.name: hero})
+        self.heroes.append(hero)
         pass
 
-    def remove_hero(self, hero):
-        self.heros.pop(hero.name)
+    def remove_hero(self, hero_name):
+        list_place = 0
+        removed_hero = False
+        for hero in self.heroes:
+            if hero.name == hero_name:
+                self.heroes.pop(list_place)
+                removed_hero = True
+            list_place += 1
+        if removed_hero is False:
+            print("I'm sorry I couldn't find that hero in this team.")
+            return 0
         pass
 
-    def list_heros(self):
-        print(self.heros.keys())
+    def view_all_heroes(self):
+        for hero in self.heroes:
+            print(hero.name)
         pass
-
 
 
 if __name__ == "__main__":
