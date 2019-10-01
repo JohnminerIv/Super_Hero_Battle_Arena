@@ -199,9 +199,7 @@ class Team(object):
                     if hero.is_alive() is True:
                         heroes_team2.append(hero)
                 len_heroes1 = len(heroes_team1)-1
-                print(len_heroes1)
                 len_heroes2 = len(heroes_team2)-1
-                print(len_heroes2)
                 if len_heroes1 == 0 and len_heroes2 == 0:
                     heroes_team1[0].fight(heroes_team2[0])
                 elif len_heroes1 > 0 and len_heroes2 == 0:
