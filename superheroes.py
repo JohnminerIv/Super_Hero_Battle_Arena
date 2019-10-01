@@ -1,18 +1,4 @@
 import random
-""" Ability Class
-__init__: Parameters: name: String, max_damage: Integer
-attack: No Parameters
-Armor Class
-__init__: Parameters: name: String, max_block: Integer
-block: Parameters: None
-Hero Class
-__init__: Parameters: name:String, starting_health:Int (default value: 100)
-add_ability: Parameters: ability:Ability Object
-attack: No Parameters
-defend: incoming_damage: Integer
-take_damage: Parameters: damage
-is_alive: No Parameters
-fight: Parameters: opponent: Hero Class """
 
 
 class Ability(object):
@@ -267,7 +253,7 @@ class Arena:
                 print("That was not an Integer!")
 
         self.abilities.update({name: Ability(name, damage)})
-        print(self.abilities)
+        # print(self.abilities)
         return self.abilities[name]
 
     def create_weapon(self):
@@ -282,7 +268,7 @@ class Arena:
                 print("That was not an Integer!")
 
         self.weapons.update({name: Weapon(name, damage)})
-        print(self.weapons)
+        # print(self.weapons)
         return self.weapons[name]
 
     def create_armor(self):
@@ -297,7 +283,7 @@ class Arena:
                 print("That was not an Integer!")
 
         self.armors.update({name: Armor(name, damage)})
-        print(self.armors)
+        # print(self.armors)
         return self.armors[name]
 
     def create_hero(self):
@@ -316,7 +302,7 @@ class Arena:
                 print("That was not an acceptable answer!")
 
         self.heroes.update({name: Hero(name, damage)})
-        print(self.heroes)
+        # print(self.heroes)
         return self.heroes[name]
 
     def build_team_one(self):
@@ -324,7 +310,7 @@ class Arena:
         name = input()
         self.team_one = Team(name)
         while True:
-            print("Would you like to edit team one? Y or N")
+            print("Would you like to assign anyone to team one? Y or N")
             user_in = input()
             if user_in == "Y":
                 while True:
@@ -365,7 +351,7 @@ armor 'R', or stop customizing hero 'S'?
         name = input()
         self.team_two = Team(name)
         while True:
-            print("Would you like to edit team two? Y or N")
+            print("Would you like to assign anyone to team two? Y or N")
             user_in = input()
             if user_in == "Y":
                 while True:
@@ -428,21 +414,7 @@ armor 'R', or stop customizing hero 'S'?
         print("The combatants have been healed.")
 
 
-
 if __name__ == "__main__":
-    """
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
-    ability1 = Ability("Super Speed", 50)
-    ability2 = Ability("Super Eyes", 50)
-    ability3 = Ability("Wizard Wand", 50)
-    ability4 = Ability("Wizard Beard", 50)
-    hero1.add_ability(ability1)
-    hero1.add_ability(ability2)
-    hero2.add_ability(ability3)
-    hero2.add_ability(ability4)
-    hero2.fight(hero1)
-    """
     while True:
         ar = Arena()
         while True:

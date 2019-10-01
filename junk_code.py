@@ -44,3 +44,17 @@ def build_team_one(self):
         if choice == "Y":
             self.create_hero(1)
         elif choice == "N":
+
+    """
+    hero1 = Hero("Wonder Woman")
+    hero2 = Hero("Dumbledore")
+    ability1 = Ability("Super Speed", 50)
+    ability2 = Ability("Super Eyes", 50)
+    ability3 = Ability("Wizard Wand", 50)
+    ability4 = Ability("Wizard Beard", 50)
+    hero1.add_ability(ability1)
+    hero1.add_ability(ability2)
+    hero2.add_ability(ability3)
+    hero2.add_ability(ability4)
+    hero2.fight(hero1)
+    """
