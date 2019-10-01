@@ -2,7 +2,8 @@ import random
 
 
 class Ability(object):
-    """docstring for Ability."""
+    """Create an Ability with a name and max damage.
+    When it is used to attack it will return a value between 0 and the max damage."""
 
     def __init__(self, name, max_damage):
         super(Ability, self).__init__()
@@ -15,7 +16,9 @@ class Ability(object):
 
 
 class Weapon(Ability):
-    """docstring for Weapon."""
+    """Create a weapon with a name and max damage.
+    When it is used to attack it will return a value between
+    1/2 the max damage and the max damage."""
 
     def attack(self):
         damage = random.randint(self.max_damage//2, self.max_damage)
@@ -23,7 +26,9 @@ class Weapon(Ability):
 
 
 class Armor(object):
-    """docstring for Armor."""
+    """Create an Armor with a name and max defence.
+    When it is used to block it will return a value between
+    0 and the max defence."""
 
     def __init__(self, name, max_block):
         super(Armor, self).__init__()
@@ -36,7 +41,7 @@ class Armor(object):
 
 
 class Hero(object):
-    """docstring for Hero."""
+    """Create a Hero with a name and a starting/ base health."""
 
     def __init__(self, name, starting_health=100):
         super(Hero, self).__init__()
@@ -83,6 +88,10 @@ class Hero(object):
             return True
 
     def fight(self, opponent):
+        """If both heros have abilities then they will attack eachother untill one
+        or both die. If one of them do not have abilities then they will forfit
+        and their life becomes 0 this count as a death for that hero and a win for
+        the opponent."""
         if self.abilities != [] and opponent.abilities != []:
             while self.is_alive() is True and opponent.is_alive() is True:
                 opponent.take_damage(self.attack())
@@ -140,7 +149,7 @@ class Hero(object):
 
 
 class Team(object):
-    """docstring for Team."""
+    """Create a team a Team with a name."""
 
     def __init__(self, name):
         self.name = name
@@ -169,6 +178,9 @@ class Team(object):
         pass
 
     def attack(self, other_team):
+        """If both of the teams have heros and abilities then select a random
+        hero from each to battle. Repeat this until there are no more heroes
+        alive in one of the teams."""
         if self.heroes != [] and other_team.heroes != []:
             for hero in self.heroes:
                 if hero.abilities == []:
@@ -233,6 +245,8 @@ class Team(object):
 
 
 class Arena:
+    """Create an arena where two teams of heroes from user input that can be
+    batteled against each other."""
     def __init__(self):
         self.team_one = None
         self.team_two = None
@@ -417,22 +431,15 @@ armor 'R', or stop customizing hero 'S'?
 if __name__ == "__main__":
     while True:
         ar = Arena()
+        ar.build_team_one()
+        ar.build_team_two()
         while True:
-            ar.build_team_one()
-            ar.build_team_two()
-            while True:
-                ar.team_battle()
-                ar.show_statistics()
-                print("Would you like these two teams to heal and battle again? Y to battle again or any key to edit teams.")
-                user_in = input()
-                if user_in == "Y":
-                    ar.teams_heal()
-                    pass
-                else:
-                    break
-            print("Would you like to edit these teams or start over from scratch? Y to edit or any key to reset the Arena.")
+            ar.team_battle()
+            ar.show_statistics()
+            print("Would you like these two teams to heal and battle again? Y to battle again or any key to remake teams.")
             user_in = input()
             if user_in == "Y":
+                ar.teams_heal()
                 pass
             else:
                 break
