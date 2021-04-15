@@ -6,5 +6,5 @@ This was for learning purposes and is not really meant to\
 be used.
 
 # Usage
-Git clone \\<this repo\\>
-python3 arena.py
+Git clone \<this repo\>
+python3 superheros.py
